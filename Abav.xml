@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="UTF-8"?><_ROOT_ EMVERSION="15.2" ORIENTATION="HORIZONTAL">
+<Workspace>
+<NODES>
+<NODE CLASS="SASHELP.EMMDFY.EMDROP.CLASS" COMPONENT="Drop" ID="Drop" X="478" Y="293" DESCRIPTION="Drop" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODIFY" TOOLPREFIX="Drop">
+<PROPERTIES DropFromTable="N" DropHidden="Y" DropInput="N" DropTarget="N" DropRejected="Y" DropAssess="N" DropPredict="N" DropFreq="N" DropClassification="N" DropResidual="N" DropOther="N" ForceRun="N" RunAction="Train" Component="Drop">
+<VariableProperties/>
+<EmVariableAttributes>
+<DELTA Variable="City" AttributeName="DROP" AttributeValue="Y"/>
+<DELTA Variable="Discount_USD" AttributeName="DROP" AttributeValue="Y"/>
+<DELTA Variable="Month" AttributeName="DROP" AttributeValue="Y"/>
+<DELTA Variable="Quarter" AttributeName="DROP" AttributeValue="Y"/>
+<DELTA Variable="Sales_Org_Description" AttributeName="DROP" AttributeValue="Y"/>
+</EmVariableAttributes>
+<EmTargetAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="FileImport" ID="FIMPORT" X="105" Y="231" DESCRIPTION="File Import" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="SAMPLE" TOOLPREFIX="FIMPORT">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMSAMP.Fimport.SOURCE" ImportType="Local" GuessRows="500" Delimiter="," NameRow="Y" SkipRows="0" MaxRows="1000000" MaxCols="10000" FileType="xlsx" Role="TRAIN" ForceRun="N" Summarize="N" AdvancedAdvisor="N" RunAction="Train" Component="FileImport" IFileName="D:\ABAV\GBI_Dataset.xlsx" AccessTable="NoTableName" UserID="NoUserID" Password="NoPassword">
+<VariableProperties/>
+<EmVariableAttributes>
+<DELTA Variable="Accounting_Document_Number" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Billing_Date" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Billing_Document_Number" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Cost_of_Goods_Sold_EUR" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Cost_of_Goods_Sold_USD" AttributeName="ROLE" AttributeValue="INPUT"/>
+<DELTA Variable="Country" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Currency" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Customer" AttributeName="ROLE" AttributeValue="ID"/>
+<DELTA Variable="Customer_Name" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Day" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Delivery_Number" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Discount_EUR" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Distribution_Channel" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Division" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Exchange_Rate_at_Quote__USD_Euro" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Layer_Number" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Layer_Order_Concatenated" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Layer_Order_Line_Concatenated" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Material_Group" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Material_Number" AttributeName="ROLE" AttributeValue="ID"/>
+<DELTA Variable="Order_Number" AttributeName="ROLE" AttributeValue="ID"/>
+<DELTA Variable="Payment_Receipt_Date" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Post_Goods_Issue_Date" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Price_EUR" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Profit_Margin_EUR" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Quote_Date" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Quote_Number" AttributeName="ROLE" AttributeValue="ID"/>
+<DELTA Variable="Revenue_EUR" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Revenue_USD" AttributeName="ROLE" AttributeValue="TARGET"/>
+<DELTA Variable="Sales_Area" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Sales_Order_Create_Date" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Sales_Order_Number" AttributeName="ROLE" AttributeValue="ID"/>
+<DELTA Variable="Sales_Organization" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="State" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Unit_Cost_at_Goods_Issue_EUR" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Unit_of_Measure" AttributeName="ROLE" AttributeValue="REJECTED"/>
+<DELTA Variable="Year" AttributeName="ROLE" AttributeValue="REJECTED"/>
+</EmVariableAttributes>
+<EmTargetAttributes/>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<VARIABLESETDELTA Type="EXTERNAL" Extension="txt">
+<Data><![CDATA[
+if NAME=&quot;Accounting_Document_Number&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Billing_Date&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Billing_Document_Number&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Cost_of_Goods_Sold_EUR&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Cost_of_Goods_Sold_USD&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Country&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Currency&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Customer&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Customer_Name&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Day&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Delivery_Number&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Discount_EUR&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Distribution_Channel&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Division&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Exchange_Rate_at_Quote__USD_Euro&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Layer_Number&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Layer_Order_Line_Concatenated&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Layer_Order_Concatenated&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Material_Group&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Material_Number&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Order_Number&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Payment_Receipt_Date&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Post_Goods_Issue_Date&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Price_EUR&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Profit_Margin_EUR&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Quote_Date&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Quote_Number&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Revenue_EUR&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Revenue_USD&quot; then do;
+ROLE=&quot;TARGET&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Sales_Area&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Sales_Order_Create_Date&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Sales_Order_Number&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Sales_Organization&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;State&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Unit_Cost_at_Goods_Issue_EUR&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Unit_of_Measure&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Year&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+]]>
+</Data>
+</VARIABLESETDELTA>
+<DELTACODE Type="EXTERNAL" Extension="txt">
+<Data><![CDATA[
+if NAME=&quot;Accounting_Document_Number&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Billing_Date&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Billing_Document_Number&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Cost_of_Goods_Sold_EUR&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Cost_of_Goods_Sold_USD&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Country&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Currency&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Customer&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Customer_Name&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Day&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Delivery_Number&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Discount_EUR&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Distribution_Channel&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Division&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Exchange_Rate_at_Quote__USD_Euro&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Layer_Number&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Layer_Order_Line_Concatenated&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Layer_Order_Concatenated&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Material_Group&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Material_Number&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Order_Number&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Payment_Receipt_Date&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Post_Goods_Issue_Date&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Price_EUR&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Profit_Margin_EUR&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Quote_Date&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Quote_Number&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Revenue_EUR&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Revenue_USD&quot; then do;
+ROLE=&quot;TARGET&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Sales_Area&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Sales_Order_Create_Date&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Sales_Order_Number&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Sales_Organization&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;State&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Unit_Cost_at_Goods_Issue_EUR&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Unit_of_Measure&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;NOMINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Year&quot; then do;
+ROLE=&quot;REJECTED&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+drop DROP;
+]]>
+</Data>
+</DELTACODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="HPDMReg" ID="HPReg" X="1029" Y="578" DESCRIPTION="HP Regression" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODEL" TOOLPREFIX="HPReg">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.HPDM.HPREG.SOURCE" MainEffect="Y" TwoFactor="N" Polynomial="N" PolynomialDegree="2" SuppressIntercept="N" MISSASLVL="N" Error="LOGISTIC" LinkFunction="LOGIT" SelectMethod="NONE" SelectCriterion="DEFAULT" StopCriterion="DEFAULT" SLEntry="0.05" SLStay="0.05" MaxEffects="0" MinEffects="0" Hierarchy="NONE" MaxSteps="0" SuppressOutput="N" ABSCONV="." ABSFCONV="." ABSGCONV="." FCONV="." GCONV="." TECH="NRRIDG" MAXITER="." MAXFUNC="." MAXTIME="." MINITER="." NORMALIZE="Y" EXCLUDEDVARIABLE="REJECT" ForceRun="N" RunAction="Train" Component="HPDMReg" NCPU="Actual" NNode="0" NThreads="Default" Host="Local" Timeout="120" LogDetails="N" Term="Y" Interactions="" SelectUseDefault="Y">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes>
+<IMP_Revenue_USD>
+<DecData Table="EMWS5.HPReg_IMP_Revenue_USD_DD">
+<Data>
+<Obs IMP_REVENUE_USD="42.5163"/>
+<Obs IMP_REVENUE_USD="40498.5042"/>
+<Obs IMP_REVENUE_USD="8153.6692576"/>
+</Data>
+<Metadata>
+<Variable NAME="IMP_Revenue_USD" LABEL="Imputed: Revenue USD" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecData>
+<DecMeta Table="EMWS5.HPReg_IMP_Revenue_USD_DM">
+<Data>
+<Obs _TYPE_="MATRIX" VARIABLE="" LABEL="" FORMAT="" LEVEL="PROFIT" TYPE="" COST="" USE="N" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="TARGET" VARIABLE="IMP_Revenue_USD" LABEL="Imputed: Revenue USD" FORMAT="" LEVEL="INTERVAL" TYPE="N" COST="" USE="" MIN="42.5163" MEAN="8153.6692576" MAX="40498.5042"/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_IMP_Revenue_USD" LABEL="Predicted: IMP_Revenue_USD" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_IMP_Revenue_USD" LABEL="Residual: IMP_Revenue_USD" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+</Data>
+<Metadata>
+<Variable NAME="_TYPE_" LABEL="Type" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="VARIABLE" LABEL="Variable" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LABEL" LABEL="Label" LENGTH="256" FORMAT="" TYPE="C"/>
+<Variable NAME="FORMAT" LABEL="Format" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LEVEL" LABEL="Measurement Level" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="TYPE" LABEL="Type" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="COST" LABEL="Cost" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="USE" LABEL="Use" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="MIN" LABEL="Minimum" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MEAN" LABEL="Mean" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MAX" LABEL="Maximum" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecMeta>
+</IMP_Revenue_USD>
+</EmTargetAttributes>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="HPTree" ID="HPTree" X="1023" Y="232" DESCRIPTION="HP Tree" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODEL" TOOLPREFIX="HPTree">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.HPDM.HPDMTREE.SOURCE" ToolType="MODEL" ALPHA="0.2" CVFOLDS="10" MINDIST="0.01" CONFIDENCE="0.25" VALIDATIONPROB="0.15" PARTITIONSEED="12345" CVSEED="12345" MAXDEPTH="10" INTERVALBINS="100" HLEAFSIZE="5" CRITERIONMETHOD="ENTROPY" ICRITERIONMETHOD="VARIANCE" UseVarOnce="N" SUBTREEMIN="N" VARSELECT="Y" VALIDATION="N" BONFERRONI="N" NODEROLE="SEGMENT" PRUNINGMETHOD="COSTCOMPLEXITY" SELMETHOD="AUTOMATIC" PASSESSMENT="ENTROPY" IPASSESSMENT="ASE" PTHRESHOLD="1.0" LIFTFRACT="0.5" NPLEAVES="1" INODECOLOR="AVERAGE" NODECOLOR="ProbEvent" LEVTHRESH1="500000" LEVTHRESH2="1000000" MINCATSIZE="5" MAXBRANCH="2" Nsurrs="0" MissingValue="POPULARITY" MAXLEAVES="1024" DEPTHCONTROL="MAXDEPTHCTRL" MValueMetric="ASE" ForceRun="N" RunAction="Train" Component="HPTree" CCPENALTY="0.8">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes>
+<IMP_Revenue_USD>
+<DecData Table="EMWS5.HPTree_IMP_Revenue_USD_DD">
+<Data>
+<Obs IMP_REVENUE_USD="42.5163"/>
+<Obs IMP_REVENUE_USD="40498.5042"/>
+<Obs IMP_REVENUE_USD="8153.6692576"/>
+</Data>
+<Metadata>
+<Variable NAME="IMP_Revenue_USD" LABEL="Imputed: Revenue USD" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecData>
+<DecMeta Table="EMWS5.HPTree_IMP_Revenue_USD_DM">
+<Data>
+<Obs _TYPE_="MATRIX" VARIABLE="" LABEL="" FORMAT="" LEVEL="PROFIT" TYPE="" COST="" USE="N" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="TARGET" VARIABLE="IMP_Revenue_USD" LABEL="Imputed: Revenue USD" FORMAT="" LEVEL="INTERVAL" TYPE="N" COST="" USE="" MIN="42.5163" MEAN="8153.6692576" MAX="40498.5042"/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_IMP_Revenue_USD" LABEL="Predicted: IMP_Revenue_USD" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_IMP_Revenue_USD" LABEL="Residual: IMP_Revenue_USD" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+</Data>
+<Metadata>
+<Variable NAME="_TYPE_" LABEL="Type" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="VARIABLE" LABEL="Variable" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LABEL" LABEL="Label" LENGTH="256" FORMAT="" TYPE="C"/>
+<Variable NAME="FORMAT" LABEL="Format" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LEVEL" LABEL="Measurement Level" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="TYPE" LABEL="Type" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="COST" LABEL="Cost" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="USE" LABEL="Use" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="MIN" LABEL="Minimum" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MEAN" LABEL="Mean" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MAX" LABEL="Maximum" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecMeta>
+</IMP_Revenue_USD>
+</EmTargetAttributes>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMMDFY.EMIMPUTE.CLASS" COMPONENT="Impute" ID="Impt" X="624" Y="388" DESCRIPTION="Impute" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODIFY" TOOLPREFIX="Impt">
+<PROPERTIES MethodInterval="MEAN" MethodClass="COUNT" MethodTargetInterval="NONE" MethodTargetClass="NONE" ABWTuning="9" AHUBERTuning="1.5" AWAVETuning="6.2831853072" SpacingProportion="90" DefaultChar="" DefaultNum="." RandomSeed="12345" Normalize="Y" ImputeNoMissing="N" MaxPctMissing="50" ValidateTestMissing="N" DistributionMissing="N" LeafSize="5" Maxbranch="2" Maxdepth="6" MinCatSize="5" Nrules="5" Nsurrs="2" Splitsize="." Indicator="NONE" IndicatorRole="REJECTED" ReplaceVariable="N" HideVariable="Y" IndicatorSource="IMPUTED" ForceRun="N" RunAction="Train" Component="Impute">
+<VariableProperties/>
+<EmVariableAttributes>
+<DELTA Variable="Cost_of_Goods_Sold_USD" AttributeName="METHOD" AttributeValue="TREE"/>
+<DELTA Variable="Division_Description" AttributeName="METHOD" AttributeValue="COUNT"/>
+<DELTA Variable="Material_Group_Description" AttributeName="METHOD" AttributeValue="COUNT"/>
+<DELTA Variable="Material_Master_Description" AttributeName="METHOD" AttributeValue="COUNT"/>
+<DELTA Variable="Price_USD" AttributeName="METHOD" AttributeValue="TREE"/>
+<DELTA Variable="Profit_Margin_USD" AttributeName="METHOD" AttributeValue="TREE"/>
+<DELTA Variable="Quantity" AttributeName="METHOD" AttributeValue="TREE"/>
+<DELTA Variable="Revenue_USD" AttributeName="METHOD" AttributeValue="MEDIAN"/>
+<DELTA Variable="Sales_Area_Description" AttributeName="METHOD" AttributeValue="COUNT"/>
+<DELTA Variable="Unit_Cost_at_Goods_Issue_USD" AttributeName="METHOD" AttributeValue="TREE"/>
+</EmVariableAttributes>
+<EmTargetAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMASSMT.ASSESS.CLASS" COMPONENT="ModelCompare" ID="MdlComp" X="1239" Y="245" DESCRIPTION="Model Comparison" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="ASSESS" TOOLPREFIX="MdlComp">
+<PROPERTIES NumberOfReportedLevels="1E-6" NormalizeReportingVariables="Y" DecileBin="20" LiftEpsilon="1E-6" ProfitEpsilon="1E-6" RoiEpsilon="1E-6" ScoreDistBin="20" RocChart="Y" RocEpsilon="0.01" AssessAllTargetLevels="N" SelectionData="DEFAULT" HPCriteria="DEFAULT" intervalViyaCriteria="DEFAULT" classViyaCriteria="DEFAULT" SelectionTable="TRAIN" SelectionCriteria="DEFAULT" SelectionDepth="10" NumberofBins="20" RecomputeAssess="N" TargetName="IMP_Revenue_USD" ModelId="HPTree" ModelDescription="HP Tree" ModelCriteria="Valid: Average Squared Error" ForceRun="N" RunAction="Train" Component="ModelCompare" StatisticUsed="_VASE_" TargetLabel="Imputed: Revenue USD">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMSAMP.EMDPART.CLASS" COMPONENT="Partition" ID="Part" X="827" Y="382" DESCRIPTION="Data Partition" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="SAMPLE" TOOLPREFIX="Part">
+<PROPERTIES Method="DEFAULT" TrainPct="70" ValidatePct="30" TestPct="0" RandomSeed="12345" OutputType="DATA" IntervalDistribution="Y" ClassDistribution="Y" ForceRun="N" RunAction="Train" Component="Partition">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMMODL.REGRESSION.CLASS" COMPONENT="Regression" ID="Reg" X="1016" Y="440" DESCRIPTION="Regression Stepwise" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODEL" TOOLPREFIX="Reg">
+<PROPERTIES MainEffect="Y" TwoFactor="N" Polynomial="N" PolynomialDegree="2" Terms="N" Error="NORMAL" LinkFunction="LOGIT" SuppressIntercept="N" InputCoding="DEVIATION" MinResourceUse="N" ModelSelection="STEPWISE" SelectionCriterion="VERROR" SelectionDefault="Y" Sequential="N" SlEntry="0.05" SlStay="0.05" Start="0" Stop="0" Force="0" Hierarchy="CLASS" Rule="NONE" MaxStep="." StepOutput="N" OptimizationTechnique="DEFAULT" ModelDefaults="Y" MaxIterations="." MaxFunctionCalls="." MaxCPUTime="1 HOUR" ConvDefaults="Y" AbsConvValue="-1.34078E154" AbsFValue="0" AbsFTime="1" AbsGValue="0.00001" AbsGTime="1" AbsXValue="1E-8" AbsXTime="1" FConvValue="0" FConvTimes="1" GConvValue="1E-6" GConvTimes="1" ClParm="N" Covout="N" CovB="N" CorB="N" Simple="N" SuppressOutput="N" Details="N" PrintDesignMatrix="N" SASSPDS="N" Performance="N" ExcludedVariable="REJECT" ForceRun="N" RunAction="Train" Component="Regression" Interactions="">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes>
+<IMP_Revenue_USD>
+<DecData Table="EMWS5.Reg_IMP_Revenue_USD_DD">
+<Data>
+<Obs IMP_REVENUE_USD="42.5163"/>
+<Obs IMP_REVENUE_USD="40498.5042"/>
+<Obs IMP_REVENUE_USD="8153.6692576"/>
+</Data>
+<Metadata>
+<Variable NAME="IMP_Revenue_USD" LABEL="Imputed: Revenue USD" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecData>
+<DecMeta Table="EMWS5.Reg_IMP_Revenue_USD_DM">
+<Data>
+<Obs _TYPE_="MATRIX" VARIABLE="" LABEL="" FORMAT="" LEVEL="PROFIT" TYPE="" COST="" USE="N" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="TARGET" VARIABLE="IMP_Revenue_USD" LABEL="Imputed: Revenue USD" FORMAT="" LEVEL="INTERVAL" TYPE="N" COST="" USE="" MIN="42.5163" MEAN="8153.6692576" MAX="40498.5042"/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_IMP_Revenue_USD" LABEL="Predicted: IMP_Revenue_USD" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_IMP_Revenue_USD" LABEL="Residual: IMP_Revenue_USD" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+</Data>
+<Metadata>
+<Variable NAME="_TYPE_" LABEL="Type" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="VARIABLE" LABEL="Variable" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LABEL" LABEL="Label" LENGTH="256" FORMAT="" TYPE="C"/>
+<Variable NAME="FORMAT" LABEL="Format" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LEVEL" LABEL="Measurement Level" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="TYPE" LABEL="Type" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="COST" LABEL="Cost" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="USE" LABEL="Use" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="MIN" LABEL="Minimum" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MEAN" LABEL="Mean" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MAX" LABEL="Maximum" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecMeta>
+</IMP_Revenue_USD>
+</EmTargetAttributes>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMMODL.REGRESSION.CLASS" COMPONENT="Regression" ID="Reg2" X="1007" Y="378" DESCRIPTION="Regression Backward" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODEL" TOOLPREFIX="Reg">
+<PROPERTIES MainEffect="Y" TwoFactor="N" Polynomial="N" PolynomialDegree="2" Terms="N" Error="NORMAL" LinkFunction="LOGIT" SuppressIntercept="N" InputCoding="DEVIATION" MinResourceUse="N" ModelSelection="BACKWARD" SelectionCriterion="VERROR" SelectionDefault="Y" Sequential="N" SlEntry="0.05" SlStay="0.05" Start="0" Stop="0" Force="0" Hierarchy="CLASS" Rule="NONE" MaxStep="." StepOutput="N" OptimizationTechnique="DEFAULT" ModelDefaults="Y" MaxIterations="." MaxFunctionCalls="." MaxCPUTime="1 HOUR" ConvDefaults="Y" AbsConvValue="-1.34078E154" AbsFValue="0" AbsFTime="1" AbsGValue="0.00001" AbsGTime="1" AbsXValue="1E-8" AbsXTime="1" FConvValue="0" FConvTimes="1" GConvValue="1E-6" GConvTimes="1" ClParm="N" Covout="N" CovB="N" CorB="N" Simple="N" SuppressOutput="N" Details="N" PrintDesignMatrix="N" SASSPDS="N" Performance="N" ExcludedVariable="REJECT" ForceRun="N" RunAction="Train" Component="Regression" Interactions="">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes>
+<IMP_Revenue_USD>
+<DecData Table="EMWS5.Reg2_IMP_Revenue_USD_DD">
+<Data>
+<Obs IMP_REVENUE_USD="42.5163"/>
+<Obs IMP_REVENUE_USD="40498.5042"/>
+<Obs IMP_REVENUE_USD="8153.6692576"/>
+</Data>
+<Metadata>
+<Variable NAME="IMP_Revenue_USD" LABEL="Imputed: Revenue USD" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecData>
+<DecMeta Table="EMWS5.Reg2_IMP_Revenue_USD_DM">
+<Data>
+<Obs _TYPE_="MATRIX" VARIABLE="" LABEL="" FORMAT="" LEVEL="PROFIT" TYPE="" COST="" USE="N" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="TARGET" VARIABLE="IMP_Revenue_USD" LABEL="Imputed: Revenue USD" FORMAT="" LEVEL="INTERVAL" TYPE="N" COST="" USE="" MIN="42.5163" MEAN="8153.6692576" MAX="40498.5042"/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_IMP_Revenue_USD" LABEL="Predicted: IMP_Revenue_USD" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_IMP_Revenue_USD" LABEL="Residual: IMP_Revenue_USD" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+</Data>
+<Metadata>
+<Variable NAME="_TYPE_" LABEL="Type" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="VARIABLE" LABEL="Variable" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LABEL" LABEL="Label" LENGTH="256" FORMAT="" TYPE="C"/>
+<Variable NAME="FORMAT" LABEL="Format" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LEVEL" LABEL="Measurement Level" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="TYPE" LABEL="Type" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="COST" LABEL="Cost" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="USE" LABEL="Use" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="MIN" LABEL="Minimum" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MEAN" LABEL="Mean" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MAX" LABEL="Maximum" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecMeta>
+</IMP_Revenue_USD>
+</EmTargetAttributes>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMMODL.REGRESSION.CLASS" COMPONENT="Regression" ID="Reg3" X="1023" Y="503" DESCRIPTION="Regression Forward" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODEL" TOOLPREFIX="Reg">
+<PROPERTIES MainEffect="Y" TwoFactor="N" Polynomial="N" PolynomialDegree="2" Terms="N" Error="NORMAL" LinkFunction="LOGIT" SuppressIntercept="N" InputCoding="DEVIATION" MinResourceUse="N" ModelSelection="FORWARD" SelectionCriterion="VERROR" SelectionDefault="Y" Sequential="N" SlEntry="0.05" SlStay="0.05" Start="0" Stop="0" Force="0" Hierarchy="CLASS" Rule="NONE" MaxStep="." StepOutput="N" OptimizationTechnique="DEFAULT" ModelDefaults="Y" MaxIterations="." MaxFunctionCalls="." MaxCPUTime="1 HOUR" ConvDefaults="Y" AbsConvValue="-1.34078E154" AbsFValue="0" AbsFTime="1" AbsGValue="0.00001" AbsGTime="1" AbsXValue="1E-8" AbsXTime="1" FConvValue="0" FConvTimes="1" GConvValue="1E-6" GConvTimes="1" ClParm="N" Covout="N" CovB="N" CorB="N" Simple="N" SuppressOutput="N" Details="N" PrintDesignMatrix="N" SASSPDS="N" Performance="N" ExcludedVariable="REJECT" ForceRun="N" RunAction="Train" Component="Regression" Interactions="">
+<VariableProperties/>
+<EmTargetAttributes>
+<IMP_Revenue_USD>
+<DecData Table="EMWS5.Reg3_IMP_Revenue_USD_DD">
+<Data>
+<Obs IMP_REVENUE_USD="42.5163"/>
+<Obs IMP_REVENUE_USD="40498.5042"/>
+<Obs IMP_REVENUE_USD="8153.6692576"/>
+</Data>
+<Metadata>
+<Variable NAME="IMP_Revenue_USD" LABEL="Imputed: Revenue USD" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecData>
+<DecMeta Table="EMWS5.Reg3_IMP_Revenue_USD_DM">
+<Data>
+<Obs _TYPE_="MATRIX" VARIABLE="" LABEL="" FORMAT="" LEVEL="PROFIT" TYPE="" COST="" USE="N" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="TARGET" VARIABLE="IMP_Revenue_USD" LABEL="Imputed: Revenue USD" FORMAT="" LEVEL="INTERVAL" TYPE="N" COST="" USE="" MIN="42.5163" MEAN="8153.6692576" MAX="40498.5042"/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_IMP_Revenue_USD" LABEL="Predicted: IMP_Revenue_USD" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_IMP_Revenue_USD" LABEL="Residual: IMP_Revenue_USD" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+</Data>
+<Metadata>
+<Variable NAME="_TYPE_" LABEL="Type" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="VARIABLE" LABEL="Variable" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LABEL" LABEL="Label" LENGTH="256" FORMAT="" TYPE="C"/>
+<Variable NAME="FORMAT" LABEL="Format" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LEVEL" LABEL="Measurement Level" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="TYPE" LABEL="Type" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="COST" LABEL="Cost" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="USE" LABEL="Use" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="MIN" LABEL="Minimum" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MEAN" LABEL="Mean" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MAX" LABEL="Maximum" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecMeta>
+</IMP_Revenue_USD>
+</EmTargetAttributes>
+<EmVariableAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMSAMP.SAMPLING.CLASS" COMPONENT="Sample" ID="Smpl" X="293" Y="276" DESCRIPTION="Sample" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="SAMPLE" TOOLPREFIX="Smpl">
+<PROPERTIES Method="RANDOM" SizeType="PERCENT" SizePercent="50" SizeObs="." RandomSeed="12345" Alpha="0.01" Pvalue="0.01" AdjustFreq="N" FreqMiss="N" FreqCount="N" StratifyCriterion="PROPORTIONAL" MinStrataSize="5" IgnoreSmallStrata="N" ClusterMethod="RANDOM" LevelProportion="100" LevelSampleProportion="50" LevelSelection="EVENT" OutputType="DATA" IntervalDistribution="Y" ClassDistribution="Y" ForceRun="N" RunAction="Train" Component="Sample">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMEXPL.STATEXPLORE.CLASS" COMPONENT="StatExplore" ID="Stat" X="316" Y="429" DESCRIPTION="StatExplore" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="EXPLORE" TOOLPREFIX="Stat">
+<PROPERTIES BySegment="N" Correlation="Y" Spearman="N" Pearson="Y" ChiSquare="Y" ChiSquareInterval="N" ChiSquareIntervalNBins="5" MaximumVars="1000" HideVariable="Y" DropRejected="Y" UseValidate="N" UseTest="N" UseScore="N" NObs="100000" IntervalDistribution="Y" ClassDistribution="Y" LevelSummary="Y" ForceRun="N" RunAction="Train" Component="StatExplore">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes/>
+<EmFileProperties>
+<CROSSTAB Type="DATA">
+<Data/>
+<Metadata/>
+</CROSSTAB>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="DecisionTree" ID="Tree" X="1010" Y="12" DESCRIPTION="Decision Tree N=9" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODEL" TOOLPREFIX="Tree">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMMODL.TREE.SOURCE" ToolType="MODEL" TrainMode="BATCH" ImportModel="N" Freeze="N" UseMultipleTarget="N" Precision="4" IntervalCriterion="PROBF" NominalCriterion="PROBCHISQ" OrdinalCriterion="ENTROPY" SigLevel="0.2" Splitsize="." LeafSize="5" MinCatSize="5" Maxbranch="2" Maxdepth="6" Nrules="5" Nsurrs="0" MissingValue="USEINSEARCH" UseVarOnce="N" SplitPrecision="4" Subtree="N" NSubtree="9" AssessMeasure="ASE" AssessPercentage="0.25" NodeSample="20000" Exhaustive="5000" Kass="Y" KassApply="BEFORE" Depth="Y" Inputs="N" NumInputs="1" VarSelection="Y" Leafid="Y" NodeRole="SEGMENT" Performance="DISK" CV="N" CVNIter="10" CVRepeat="1" CVSeed="12345" ObsImportance="N" NumSingleImp="5" UseDecision="N" UsePriors="N" ClassColorBy="PERCENTCORRECT" IntColorBy="AVG" ShowNodeId="Y" ShowValid="Y" Pred="N" Target="ALL" Count="Y" ProfitLoss="NONE" PercentCorrect="N" AVG="Y" RASE="N" CreateSample="DEFAULT" SampleMethod="RANDOM" SampleSize="10000" SampleSeed="12345" ForceRun="N" RunAction="Train" Component="DecisionTree" Criterion="DEFAULT" Dummy="N" Predict="Y" ImportedTreeData="">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes>
+<IMP_Revenue_USD>
+<DecData Table="EMWS5.Tree_IMP_Revenue_USD_DD">
+<Data>
+<Obs IMP_REVENUE_USD="42.5163"/>
+<Obs IMP_REVENUE_USD="40498.5042"/>
+<Obs IMP_REVENUE_USD="8153.6692576"/>
+</Data>
+<Metadata>
+<Variable NAME="IMP_Revenue_USD" LABEL="Imputed: Revenue USD" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecData>
+<DecMeta Table="EMWS5.Tree_IMP_Revenue_USD_DM">
+<Data>
+<Obs _TYPE_="MATRIX" VARIABLE="" LABEL="" FORMAT="" LEVEL="PROFIT" TYPE="" COST="" USE="N" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="TARGET" VARIABLE="IMP_Revenue_USD" LABEL="Imputed: Revenue USD" FORMAT="" LEVEL="INTERVAL" TYPE="N" COST="" USE="" MIN="42.5163" MEAN="8153.6692576" MAX="40498.5042"/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_IMP_Revenue_USD" LABEL="Predicted: IMP_Revenue_USD" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_IMP_Revenue_USD" LABEL="Residual: IMP_Revenue_USD" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+</Data>
+<Metadata>
+<Variable NAME="_TYPE_" LABEL="Type" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="VARIABLE" LABEL="Variable" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LABEL" LABEL="Label" LENGTH="256" FORMAT="" TYPE="C"/>
+<Variable NAME="FORMAT" LABEL="Format" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LEVEL" LABEL="Measurement Level" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="TYPE" LABEL="Type" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="COST" LABEL="Cost" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="USE" LABEL="Use" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="MIN" LABEL="Minimum" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MEAN" LABEL="Mean" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MAX" LABEL="Maximum" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecMeta>
+</IMP_Revenue_USD>
+</EmTargetAttributes>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="DecisionTree" ID="Tree2" X="1019" Y="89" DESCRIPTION="Decision Tree N=10" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODEL" TOOLPREFIX="Tree">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMMODL.TREE.SOURCE" ToolType="MODEL" TrainMode="BATCH" ImportModel="N" Freeze="N" UseMultipleTarget="N" Precision="4" IntervalCriterion="PROBF" NominalCriterion="PROBCHISQ" OrdinalCriterion="ENTROPY" SigLevel="0.2" Splitsize="." LeafSize="5" MinCatSize="5" Maxbranch="2" Maxdepth="6" Nrules="5" Nsurrs="0" MissingValue="USEINSEARCH" UseVarOnce="N" SplitPrecision="4" Subtree="N" NSubtree="10" AssessMeasure="ASE" AssessPercentage="0.25" NodeSample="20000" Exhaustive="5000" Kass="Y" KassApply="BEFORE" Depth="Y" Inputs="N" NumInputs="1" VarSelection="Y" Leafid="Y" NodeRole="SEGMENT" Performance="DISK" CV="N" CVNIter="10" CVRepeat="1" CVSeed="12345" ObsImportance="N" NumSingleImp="5" UseDecision="N" UsePriors="N" ClassColorBy="PERCENTCORRECT" IntColorBy="AVG" ShowNodeId="Y" ShowValid="Y" Pred="N" Target="ALL" Count="Y" ProfitLoss="NONE" PercentCorrect="N" AVG="Y" RASE="N" CreateSample="DEFAULT" SampleMethod="RANDOM" SampleSize="10000" SampleSeed="12345" ForceRun="N" RunAction="Train" Component="DecisionTree" Criterion="DEFAULT" Dummy="N" Predict="Y" ImportedTreeData="">
+<VariableProperties/>
+<EmTargetAttributes>
+<IMP_Revenue_USD>
+<DecData Table="EMWS5.Tree2_IMP_Revenue_USD_DD">
+<Data>
+<Obs IMP_REVENUE_USD="42.5163"/>
+<Obs IMP_REVENUE_USD="40498.5042"/>
+<Obs IMP_REVENUE_USD="8153.6692576"/>
+</Data>
+<Metadata>
+<Variable NAME="IMP_Revenue_USD" LABEL="Imputed: Revenue USD" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecData>
+<DecMeta Table="EMWS5.Tree2_IMP_Revenue_USD_DM">
+<Data>
+<Obs _TYPE_="MATRIX" VARIABLE="" LABEL="" FORMAT="" LEVEL="PROFIT" TYPE="" COST="" USE="N" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="TARGET" VARIABLE="IMP_Revenue_USD" LABEL="Imputed: Revenue USD" FORMAT="" LEVEL="INTERVAL" TYPE="N" COST="" USE="" MIN="42.5163" MEAN="8153.6692576" MAX="40498.5042"/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_IMP_Revenue_USD" LABEL="Predicted: IMP_Revenue_USD" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_IMP_Revenue_USD" LABEL="Residual: IMP_Revenue_USD" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+</Data>
+<Metadata>
+<Variable NAME="_TYPE_" LABEL="Type" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="VARIABLE" LABEL="Variable" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LABEL" LABEL="Label" LENGTH="256" FORMAT="" TYPE="C"/>
+<Variable NAME="FORMAT" LABEL="Format" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LEVEL" LABEL="Measurement Level" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="TYPE" LABEL="Type" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="COST" LABEL="Cost" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="USE" LABEL="Use" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="MIN" LABEL="Minimum" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MEAN" LABEL="Mean" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MAX" LABEL="Maximum" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecMeta>
+</IMP_Revenue_USD>
+</EmTargetAttributes>
+<EmVariableAttributes/>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="DecisionTree" ID="Tree3" X="1021" Y="163" DESCRIPTION="Decision Tree N=11" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODEL" TOOLPREFIX="Tree">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMMODL.TREE.SOURCE" ToolType="MODEL" TrainMode="BATCH" ImportModel="N" Freeze="N" UseMultipleTarget="N" Precision="4" IntervalCriterion="PROBF" NominalCriterion="PROBCHISQ" OrdinalCriterion="ENTROPY" SigLevel="0.2" Splitsize="." LeafSize="5" MinCatSize="5" Maxbranch="2" Maxdepth="6" Nrules="5" Nsurrs="0" MissingValue="USEINSEARCH" UseVarOnce="N" SplitPrecision="4" Subtree="N" NSubtree="11" AssessMeasure="ASE" AssessPercentage="0.25" NodeSample="20000" Exhaustive="5000" Kass="Y" KassApply="BEFORE" Depth="Y" Inputs="N" NumInputs="1" VarSelection="Y" Leafid="Y" NodeRole="SEGMENT" Performance="DISK" CV="N" CVNIter="10" CVRepeat="1" CVSeed="12345" ObsImportance="N" NumSingleImp="5" UseDecision="N" UsePriors="N" ClassColorBy="PERCENTCORRECT" IntColorBy="AVG" ShowNodeId="Y" ShowValid="Y" Pred="N" Target="ALL" Count="Y" ProfitLoss="NONE" PercentCorrect="N" AVG="Y" RASE="N" CreateSample="DEFAULT" SampleMethod="RANDOM" SampleSize="10000" SampleSeed="12345" ForceRun="N" RunAction="Train" Component="DecisionTree" Criterion="DEFAULT" Dummy="N" Predict="Y" ImportedTreeData="">
+<VariableProperties/>
+<EmTargetAttributes>
+<IMP_Revenue_USD>
+<DecData Table="EMWS5.Tree3_IMP_Revenue_USD_DD">
+<Data>
+<Obs IMP_REVENUE_USD="42.5163"/>
+<Obs IMP_REVENUE_USD="40498.5042"/>
+<Obs IMP_REVENUE_USD="8153.6692576"/>
+</Data>
+<Metadata>
+<Variable NAME="IMP_Revenue_USD" LABEL="Imputed: Revenue USD" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecData>
+<DecMeta Table="EMWS5.Tree3_IMP_Revenue_USD_DM">
+<Data>
+<Obs _TYPE_="MATRIX" VARIABLE="" LABEL="" FORMAT="" LEVEL="PROFIT" TYPE="" COST="" USE="N" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="TARGET" VARIABLE="IMP_Revenue_USD" LABEL="Imputed: Revenue USD" FORMAT="" LEVEL="INTERVAL" TYPE="N" COST="" USE="" MIN="42.5163" MEAN="8153.6692576" MAX="40498.5042"/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_IMP_Revenue_USD" LABEL="Predicted: IMP_Revenue_USD" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_IMP_Revenue_USD" LABEL="Residual: IMP_Revenue_USD" FORMAT="" LEVEL="" TYPE="N" COST="" USE="" MIN="." MEAN="." MAX="."/>
+</Data>
+<Metadata>
+<Variable NAME="_TYPE_" LABEL="Type" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="VARIABLE" LABEL="Variable" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LABEL" LABEL="Label" LENGTH="256" FORMAT="" TYPE="C"/>
+<Variable NAME="FORMAT" LABEL="Format" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LEVEL" LABEL="Measurement Level" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="TYPE" LABEL="Type" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="COST" LABEL="Cost" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="USE" LABEL="Use" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="MIN" LABEL="Minimum" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MEAN" LABEL="Mean" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="MAX" LABEL="Maximum" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecMeta>
+</IMP_Revenue_USD>
+</EmTargetAttributes>
+<EmVariableAttributes/>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+</NODES>
+<CONNECTIONS>
+<CONNECTION FROM="FIMPORT" TO="Smpl"/>
+<CONNECTION FROM="Smpl" TO="Stat"/>
+<CONNECTION FROM="Stat" TO="Drop"/>
+<CONNECTION FROM="Drop" TO="Impt"/>
+<CONNECTION FROM="Impt" TO="Part"/>
+<CONNECTION FROM="Part" TO="Reg3"/>
+<CONNECTION FROM="Part" TO="Reg2"/>
+<CONNECTION FROM="Part" TO="Reg"/>
+<CONNECTION FROM="Reg" TO="MdlComp"/>
+<CONNECTION FROM="Reg2" TO="MdlComp"/>
+<CONNECTION FROM="Reg3" TO="MdlComp"/>
+<CONNECTION FROM="Part" TO="Tree"/>
+<CONNECTION FROM="Tree" TO="MdlComp"/>
+<CONNECTION FROM="Part" TO="Tree2"/>
+<CONNECTION FROM="Part" TO="Tree3"/>
+<CONNECTION FROM="Tree2" TO="MdlComp"/>
+<CONNECTION FROM="Tree3" TO="MdlComp"/>
+<CONNECTION FROM="Part" TO="HPTree"/>
+<CONNECTION FROM="HPTree" TO="MdlComp"/>
+<CONNECTION FROM="Part" TO="HPReg"/>
+<CONNECTION FROM="HPReg" TO="MdlComp"/>
+</CONNECTIONS>
+<NOTES>
+<DATA><![CDATA[
+
+]]>
+</DATA>
+</NOTES>
+</Workspace>
+</_ROOT_>
